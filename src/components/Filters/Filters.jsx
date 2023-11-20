@@ -1,10 +1,17 @@
 import React from 'react';
 import css from "./Filters.module.css"
+import { useDispatch} from 'react-redux';
+import { filterContacts } from 'redux/filter/filter.deducer';
 
 
-const Filters = ({ handleFilterContact,value }) => {
- 
+const Filters = ({value}) => {
 
+  const dispatch = useDispatch();
+
+  const handleFilterContact = evt => {
+    dispatch(filterContacts(evt.target.value))
+    
+  }
 
   return (
     <input
